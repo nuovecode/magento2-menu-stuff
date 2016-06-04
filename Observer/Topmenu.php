@@ -29,32 +29,24 @@ class Topmenu implements ObserverInterface
         /** @var \Magento\Framework\Data\Tree\Node $menu */
         $menu = $observer->getMenu();
         //$tree = $menu->getTree();
-
+        
+        // Retrieve menu item data
         $items = $menu->getChildren();
         foreach ($items as $item) {
             var_dump($item['id']);
         }
-
-
-        $html = $this->_layout
-            ->getLayout()
-            ->createBlock('Magento\Cms\Block\Block')
-            ->setBlockId('category-node-187')
-            ->toHtml();
-
-        var_dump($html);
-
-
-       /**
+        
+        //Add a menu item (Es. Home)
         $data = [
             'name'      => __('Home'),
-            'id'        => 'some-unique-id-here',
+            'id'        => 'unique-id',
             'url'       => $this->_storeManager->getStore()->getBaseUrl(),
             'is_active' => $this->_request->getFullActionName() == 'cms_index_index' ? 'active':''
         ];
         $node = new Node($data, 'id', $tree, $menu);
         $menu->addChild($node);
+        
         return $this;
-       */
+    
     }
 }
