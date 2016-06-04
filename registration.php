@@ -2,6 +2,6 @@
 use \Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(ComponentRegistrar::MODULE,
-    'Bitbull_CufficioMenu',
+    'Nuovecode_SampleMenu',
     __DIR__
 );
